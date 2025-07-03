@@ -85,9 +85,8 @@ class HOCRCombiner():
       
         # create the PDF file
         pdf = Canvas(pdf_path, pagesize=(width*inch, height*inch), pageCompression=1) # page size in points (1/72 in.)
-
         # put the image on the page, scaled to fill the page
-        pdf.drawInlineImage(im, 0, 0, width=width*inch, height=height*inch)
+        pdf.drawImage(self.image_path, 0, 0, width=width * inch, height=height * inch)
     
         if self.hocr is not None:
             for line in self.hocr.findall(".//%sspan"%(self.xmlns)):
